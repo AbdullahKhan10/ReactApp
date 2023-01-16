@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes} from 'react-router-dom';
+import { ProtectedRoute } from './utilities/ProtectedRoute'; //use this for all pages except login
+import Login from './components/Login';
+import Projects from './components/Projects';
+import TestPlan from './components/TestPlan';
+import Search from './components/Search';
+import Scenarios from './components/Scenarios';
+import TestData from './components/TestData';
+import ExpectedData from './components/ExpectedData';
+import Execution from './components/Execution';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <h1>OMDM Pages</h1>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/testPlan" element={<TestPlan />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/scenarios" element={<Scenarios />} />
+        <Route path="/testData" element={< TestData/>} />
+        <Route path="/expectedData" element={<ExpectedData />} />
+        <Route path="/execution" element={<Execution />} />
+    </Routes>
+    </>
   );
 }
-
-export default App;
